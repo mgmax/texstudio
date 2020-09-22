@@ -1279,7 +1279,7 @@ Likewise "Cursor follows Scrolling"  keeps the editor position synchronous to pd
 
 <h3>General Set-up for external viewers</h3>
 <p>
-Some (dvi) viewers can jump to (and visually highlight) a position in the DVI file that corresponds to a certain line number in the (La)TeX source file.<br>
+Some PDF or DVI viewers can jump to (and visually highlight) a position in the PDF/DVI file that corresponds to a certain line number in the (La)TeX source file.<br>
 To enable this forward search, you can enter the command line of the corresponding viewer either as command line for an user tool in the User menu (User/User Commands/Edit...) or in the viewer command line in the config dialog  ("Options/Configure TeXstudio" -> "Commands").
 When the viewer is launched, the <b>@</b>-placeholder will be replaced by the current line number and <b>?c:ame</b> by the complete absolute filename of the current file. If your PDF file is not in the same directory as your .tex file  you can use the <b>?p{pdf}:ame</b> placeholder. For details see <a href="#SECTION33a">External Commands</a>.<br><br>
 On Windows, you can execute DDE commands by inserting a command of the form: <span class="command">dde:///service/control/[commands...]</span> or (since TeXstudio 1.9.9) also <span class="command">dde:///programpath:service/control/[commands...]</span> to start the program if necessary.
@@ -1352,8 +1352,9 @@ Launch kdvi from TeXstudio: <span class="command">kdvi "file:%.dvi#src:@ ?c:m.te
 
 <h3>Okular</h3>
 <p>
-Launch okular from TeXstudio: <span class="command">okular --unique %.dvi#src:@?c:m.tex</span><br><br>
-Launch TeXstudio from Okular: <span class="command">texstudio %f -line %l</span>
+Launch okular from TeXstudio (PDF): <span class="command">okular --unique %.pdf#src:@?c:ame</span><br><br>
+Launch okular from TeXstudio (DVI): <span class="command">okular --unique %.dvi#src:@?c:m.tex</span><br><br>
+Launch TeXstudio from Okular: In Okular's menu: Settings / Configure Okular / Editor / Editor: User defined, Command: <span class="command">texstudio %f -line %l</span>
 </p>
 
 <h3>Skim</h3>
